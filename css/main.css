@@ -35,18 +35,49 @@ body, html {
 a:hover {
   text-decoration: none; }
 
+.animated {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn; }
+
+.hidden {
+  opacity: 0; }
+
+.visible {
+  opacity: 1; }
+
 .nav-link {
   color: #fefefb; }
 
 .header {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(159, 154, 207, 0.5)), to(rgba(159, 154, 207, 0.5))), url(../img/DeathtoStock_Wired7.png) no-repeat 50%;
-  background: linear-gradient(rgba(159, 154, 207, 0.5), rgba(159, 154, 207, 0.5)), url(../img/DeathtoStock_Wired7.png) no-repeat 50%;
-  background-size: cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(159, 154, 207, 0.5)), to(rgba(159, 154, 207, 0.5)));
+  background: linear-gradient(rgba(159, 154, 207, 0.5), rgba(159, 154, 207, 0.5));
   height: 100%;
   color: #fefefb;
   position: relative;
-  background-attachment: fixed;
-  font-family: ProximaNova; }
+  font-family: ProximaNova;
+  z-index: 0; }
+  @media screen and (max-width: 540px) {
+    .header {
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(159, 154, 207, 0.5)), to(rgba(159, 154, 207, 0.5))), url(../img/DeathtoStock_Wired7.png) no-repeat 50%;
+      background: linear-gradient(rgba(159, 154, 207, 0.5), rgba(159, 154, 207, 0.5)), url(../img/DeathtoStock_Wired7.png) no-repeat 50%; } }
 
 .name {
   -webkit-box-orient: vertical;
@@ -54,10 +85,10 @@ a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
   text-align: center; }
   .name h1 {
     font-size: 3rem;
@@ -81,8 +112,36 @@ a:hover {
     border-bottom: 1px solid #fff;
     color: #fefefb; }
 
+.fullscreen-bg {
+  position: absolute;
+  overflow: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  opacity: 0.5;
+  background: #9f9acf;
+  overflow: hidden; }
+
+.fullscreen-bg__video {
+  position: absolute;
+  height: 100%;
+  overflow: hidden; }
+  @media screen and (min-width: 1550px) {
+    .fullscreen-bg__video {
+      max-width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: auto; } }
+
 .section1 {
-  padding-top: 130px; }
+  padding-top: 130px;
+  position: relative; }
   .section1 .btn {
     margin-top: 50px;
     border-radius: 0;
@@ -100,20 +159,17 @@ a:hover {
       padding-top: 70px; }
     .section1 .section1__img .img-block {
       z-index: -999;
-      height: 550px;
-      width: 380px;
+      height: 480px;
+      width: 330px;
       overflow: hidden;
       margin: 0 auto;
       margin-bottom: 40px; }
       .section1 .section1__img .img-block img {
-        -moz-transition: all 1s ease-out;
-        -o-transition: all 1s ease-out;
-        -webkit-transition: all 1s ease-out;
         margin: 0 auto; }
         .section1 .section1__img .img-block img:hover {
-          -webkit-transform: scale(1.05);
-          -moz-transform: scale(1.05);
-          -o-transform: scale(1.05); }
+          -webkit-transform: scale(1.08);
+          -moz-transform: scale(1.08);
+          -o-transform: scale(1.08); }
     .section1 .section1__img h2 {
       margin-top: 40px;
       color: #fefefb; }
@@ -127,8 +183,19 @@ a:hover {
 
 .about_desc {
   position: absolute;
-  top: 15%;
-  left: 33%; }
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+.section1__bg {
+  background: #ebebeb;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto; }
 
 .section2__title {
   text-align: center; }
@@ -235,7 +302,13 @@ a:hover {
   position: relative; }
   .footer__title {
     text-align: center;
-    margin-bottom: 170px; }
+    margin-bottom: 100px; }
+    @media screen and (max-width: 540px) {
+      .footer__title {
+        margin-bottom: 50px; } }
+    @media screen and (min-width: 1200px) {
+      .footer__title {
+        margin-bottom: 200px; } }
 
 .js-animation-icon, .js-animation-icon2 {
   padding: 25px 25px; }
@@ -257,6 +330,9 @@ a:hover {
           justify-content: center;
   align-item: center;
   top: 40%; }
+  @media screen and (max-width: 540px) {
+    .js-animation, .js-animation2 {
+      display: none; } }
   .js-animation p, .js-animation2 p {
     color: #665f60; }
 
@@ -348,13 +424,19 @@ a:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    margin: 18px 5px; }
+    margin: 18px 5px;
+    font-size: 7px; }
     .footer-icon .ba-footer__social-item:hover {
       background-color: #9f9acf;
       color: #fff; }
+    .footer-icon .ba-footer__social-item i {
+      font-size: 14px; }
 
 .footer-block {
   background-color: #9f9acf; }
+  @media screen and (max-width: 540px) {
+    .footer-block {
+      text-align: center; } }
 
 .services-item {
   height: 400px;
@@ -380,10 +462,14 @@ a:hover {
   .services-item p {
     font-style: italic;
     font-size: 1.12rem; }
-  .services-item:hover {
-    background-color: #cecece; }
-    .services-item:hover h3 {
-      color: #fefefb; }
+  .services-item:hover .services-item__text {
+    opacity: 0;
+    -webkit-transition: none;
+    transition: none; }
+  .services-item:hover .services-item__btn a {
+    opacity: 1;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in; }
 
 .services-title {
   color: #fefefb;
@@ -403,3 +489,45 @@ a:hover {
 
 .services {
   padding-top: 120px; }
+
+.graphic-design {
+  background: #dbdbdb; }
+  .graphic-design:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../img/big-eugene-riyako.jpg) no-repeat 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/big-eugene-riyako.jpg) no-repeat 50%;
+    background-size: cover; }
+
+.web-development {
+  background: #ebebeb; }
+  .web-development:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../img/123.png) no-repeat 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/123.png) no-repeat 50%;
+    background-size: cover; }
+
+.seo {
+  background: #ebebeb; }
+  .seo:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../img/Lemon-school.jpg) no-repeat 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/Lemon-school.jpg) no-repeat 50%;
+    background-size: cover; }
+
+.mobile {
+  background: #dbdbdb; }
+  .mobile:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../img/big_02.jpg) no-repeat 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/big_02.jpg) no-repeat 50%;
+    background-size: cover; }
+
+.services-item__btn a {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: none;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fefefb;
+  padding: 160px 140px;
+  font-family: ProximaNova; }
